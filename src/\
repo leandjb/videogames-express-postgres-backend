@@ -3,7 +3,7 @@ const { pool } = require('../database.js');
 const obtener_todos_los_videojuegos = async (req, res) => {
 
 	try {
-		const consulta = 'SELECT * FROM videojuegos ORDER BY id ASC'
+		const consulta = 'SELECT * FROM videojuegos ORDER BY nombre DESC'
 		const resultado = await pool.query(consulta)
 
 		res.json({
@@ -46,6 +46,7 @@ const obtener_videojuego_por_id = async (req, res) => {
 
 	} catch (error){
 		console.error('Error:', error);
+		
 		res.status(500).json({
 			exito: false,
 			mensaje: 'Error al obtener el ID del videojuego',
@@ -60,7 +61,7 @@ const crear_videojuego = async (req, res) => {
 	{
 		const {nombre, genero, plataforma, precio, fecha_lanzamiento, desarrollador} = req.body;
 
-		if(!nombre || !genero || !plataforma || !precio)
+		if(!nombre || !genero || !plataforma || !precio) 
 		{
 			return res.status(400).json(
 			{
@@ -69,21 +70,19 @@ const crear_videojuego = async (req, res) => {
 			})
 		}
 
-		const existe = await pool.query(
-					'SELECT id FROM videojuegos WHERE nombre=$1 AND genero=$2 AND plataforma=$3 AND precio=$4'
-					,[nombre, genero, plataforma, precio]
-				)
+		if (nombre && plataforma){
+			return res.status(401).json(
+			{
+				exito:false,
+				mensaje: 'No se puede crear un videojuego existente'
 
-		if (existe.rows.length > 0)
-		{
-			return res.status(409).json({
-				exito: false,
-				msn: "Ya existe un videojuego con ese nombre"
-			})
+			}
+			)
 		}
 
 
-		const consulta = 'INSERT INTO videojuegos (nombre, genero, plataforma, precio, fecha_lanzamiento, desarrollador) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *';
+		const consulta = 'INSERT INTO videojuegos (nombre, genero, plataforma, precio, fecha_lanzamiento, desarrollador) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *'
+
 		const valores = [nombre, genero, plataforma, precio, fecha_lanzamiento, desarrollador];
 		const resultado = await pool.query(consulta, valores);
 
@@ -95,7 +94,7 @@ const crear_videojuego = async (req, res) => {
 		})
 	}
 
-	catch (error)
+	catch (error) 
 	{
 		console.error('Something get wrong. Error Message:', error)
 
@@ -165,7 +164,7 @@ const eliminar_videojuego = async (req, res) => {
 	{
 		const {id} = req.params;
 		const consulta = 'DELETE FROM videojuegos WHERE id=$1 RETURNING *';
-		const resultado = await pool.query(consulta, [id]);
+		const resultado = await pool(consulta, [id]);
 
 		if (resultado.rows.length === 0){
 			return res.status(404).json({
@@ -185,7 +184,7 @@ const eliminar_videojuego = async (req, res) => {
 	{
 		console.error("Something get wrong. Error Message", error)
 		res.status(500).json({
-			exito: false,
+			exito: fail,
 			mensaje: "Fallo al eliminar el videojuego",
 			error: error.message
 		})
