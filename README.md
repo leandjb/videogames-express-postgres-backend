@@ -1,6 +1,7 @@
-# pg-node - Video Games API
+# videogames-express-postgres-backend
+--
 
-REST API for video games built with Node.js, Express and PostgreSQL.
+REST API for videogames built with Node.js, Express and PostgreSQL.
 
 ## Table of Contents
 
@@ -180,15 +181,15 @@ curl -X POST http://localhost:3000/api/videojuegos \
 ## Project Structure
 
 ```
-├── SQL/                        # Database scripts
+├── sql-queries/                # Database scripts
 │   ├── crear_tablas.sql
 │   └── insertar_datos.sql
 ├── src/
 │   ├── servidor.js             # Entry point, routes
 │   ├── database.js             # PostgreSQL connection pool
-│   └── controladores/
+│   └── controladores/          # Endpoints actions
 │       └── videojuegos-controlador.js
-├── docker-compose.yml
+├── docker-compose.yml          # Postgres and Node.js containers
 ├── .env.example
 └── package.json
 ```
