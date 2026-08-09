@@ -1,0 +1,774 @@
+{
+	"info": {
+		"_postman_id": "7f90de47-90d5-4c46-9bc1-b9043c80bf88",
+		"name": "videogames-express",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "57232544"
+	},
+	"item": [
+		{
+			"name": "health-check",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "health-check",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"34-HF/hk+QOkTbW9zkkKUppINQthKU\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 08 Aug 2026 18:19:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"games server working\",\n    \"status\": \"active\"\n}"
+				}
+			]
+		},
+		{
+			"name": "obtain games list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/videojuegos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"videojuegos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "obtain games list",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/videojuegos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"videojuegos"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2515"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"9d3-qjU8OWPBSBgQhlwVYmWtipkwjKk\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 08 Aug 2026 18:18:16 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"exito\": true,\n    \"mensaje\": \"videojuegos obtenidos correctamente\",\n    \"total\": 11,\n    \"datos\": [\n        {\n            \"id\": 1,\n            \"nombre\": \"The legend of Zelda: Breath of the Wild\",\n            \"genero\": \"Aventura\",\n            \"plataforma\": \"Switch\",\n            \"precio\": \"59.99\",\n            \"fecha_lanzamiento\": \"2017-03-03T00:00:00.000Z\",\n            \"desarrollador\": \"Nintendo\",\n            \"fecha_creacion\": \"2026-08-01T00:07:19.109Z\"\n        },\n        {\n            \"id\": 3,\n            \"nombre\": \"The Witcher 3: Wild Hunt\",\n            \"genero\": \"RPG\",\n            \"plataforma\": \"PC\",\n            \"precio\": \"39.99\",\n            \"fecha_lanzamiento\": \"2015-05-19T00:00:00.000Z\",\n            \"desarrollador\": \"CD Projekt Red\",\n            \"fecha_creacion\": \"2026-08-01T00:12:34.678Z\"\n        },\n        {\n            \"id\": 8,\n            \"nombre\": \"The Legend of Zelda: Tears of the Kingdom\",\n            \"genero\": \"Aventura/Acción\",\n            \"plataforma\": \"Nintendo Switch\",\n            \"precio\": \"69.99\",\n            \"fecha_lanzamiento\": \"2023-05-12T00:00:00.000Z\",\n            \"desarrollador\": \"Nintendo\",\n            \"fecha_creacion\": \"2026-08-07T04:39:52.152Z\"\n        },\n        {\n            \"id\": 5,\n            \"nombre\": \"Stardew Valley\",\n            \"genero\": \"Simulacion\",\n            \"plataforma\": \"PC\",\n            \"precio\": \"14.99\",\n            \"fecha_lanzamiento\": \"2016-02-26T00:00:00.000Z\",\n            \"desarrollador\": \"ConcernedApe\",\n            \"fecha_creacion\": \"2026-08-01T00:12:34.678Z\"\n        },\n        {\n            \"id\": 4,\n            \"nombre\": \"Red Dead Redemption 2\",\n            \"genero\": \"Accion\",\n            \"plataforma\": \"PS4\",\n            \"precio\": \"59.99\",\n            \"fecha_lanzamiento\": \"2018-10-26T00:00:00.000Z\",\n            \"desarrollador\": \"Rockstar Games\",\n            \"fecha_creacion\": \"2026-08-01T00:12:34.678Z\"\n        },\n        {\n            \"id\": 9,\n            \"nombre\": \"God of War Ragnarök\",\n            \"genero\": \"Acción/Aventura\",\n            \"plataforma\": \"PlayStation 5\",\n            \"precio\": \"69.99\",\n            \"fecha_lanzamiento\": \"2022-11-09T00:00:00.000Z\",\n            \"desarrollador\": \"Santa Monica Studio\",\n            \"fecha_creacion\": \"2026-08-07T04:39:52.152Z\"\n        },\n        {\n            \"id\": 2,\n            \"nombre\": \"God of War\",\n            \"genero\": \"Accion\",\n            \"plataforma\": \"PS2\",\n            \"precio\": \"39.99\",\n            \"fecha_lanzamiento\": \"2003-04-30T00:00:00.000Z\",\n            \"desarrollador\": \"Sony\",\n            \"fecha_creacion\": \"2026-08-01T00:09:57.124Z\"\n        },\n        {\n            \"id\": 10,\n            \"nombre\": \"Elden Ring\",\n            \"genero\": \"RPG/Acción\",\n            \"plataforma\": \"PC\",\n            \"precio\": \"59.99\",\n            \"fecha_lanzamiento\": \"2022-02-25T00:00:00.000Z\",\n            \"desarrollador\": \"FromSoftware\",\n            \"fecha_creacion\": \"2026-08-07T04:39:52.152Z\"\n        },\n        {\n            \"id\": 6,\n            \"nombre\": \"Dark Souls\",\n            \"genero\": \"RPG\",\n            \"plataforma\": \"PS3\",\n            \"precio\": \"19.99\",\n            \"fecha_lanzamiento\": \"2011-09-22T00:00:00.000Z\",\n            \"desarrollador\": \"FromSoftware\",\n            \"fecha_creacion\": \"2026-08-01T00:12:34.678Z\"\n        },\n        {\n            \"id\": 11,\n            \"nombre\": \"Cyberpunk 2077\",\n            \"genero\": \"RPG\",\n            \"plataforma\": \"PC\",\n            \"precio\": \"49.99\",\n            \"fecha_lanzamiento\": \"2020-12-10T00:00:00.000Z\",\n            \"desarrollador\": \"CD Projekt Red\",\n            \"fecha_creacion\": \"2026-08-07T04:39:52.152Z\"\n        },\n        {\n            \"id\": 7,\n            \"nombre\": \"Celeste\",\n            \"genero\": \"Plataformas\",\n            \"plataforma\": \"Switch\",\n            \"precio\": \"19.99\",\n            \"fecha_lanzamiento\": \"2018-01-25T00:00:00.000Z\",\n            \"desarrollador\": \"Maddy Makes Games\",\n            \"fecha_creacion\": \"2026-08-01T00:12:34.678Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "obtain games by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/videojuegos/17",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"videojuegos",
+						"17"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "obtain games by id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/videojuegos/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"videojuegos",
+								"4"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "283"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"11b-S812B5c3gHklO76X6Ol2f8WFNd4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 08 Aug 2026 18:20:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"exito\": true,\n    \"mensaje\": \"videojuego encontrado por ID\",\n    \"datos\": {\n        \"id\": 4,\n        \"nombre\": \"Red Dead Redemption 2\",\n        \"genero\": \"Accion\",\n        \"plataforma\": \"PS4\",\n        \"precio\": \"59.99\",\n        \"fecha_lanzamiento\": \"2018-10-26T00:00:00.000Z\",\n        \"desarrollador\": \"Rockstar Games\",\n        \"fecha_creacion\": \"2026-08-01T00:12:34.678Z\"\n    }\n}"
+				},
+				{
+					"name": "obtain games by id not found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/videojuegos/155",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"videojuegos",
+								"155"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"34-bzmcVoD4CXBGu2C1pKNdItcquOQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 08 Aug 2026 20:10:32 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"exito\": false,\n    \"mensaje\": \"videojuego no encontrado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "create new game",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Megaman X4\", \r\n    \"genero\": \"Aventura\", \r\n    \"plataforma\": \"PS1\",\r\n    \"precio\": \"8.99\",\r\n    \"fecha_lanzamiento\": \"1996/08/10\",\r\n    \"desarrollador\": \"Capcom\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/videojuegos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"videojuegos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create new game",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Donkey Kong Country 3\", \r\n    \"genero\": \"Aventura\", \r\n    \"plataforma\": \"SNES\",\r\n    \"precio\": \"20.99\",\r\n    \"fecha_lanzamiento\": \"1995-07-15\",\r\n    \"desarrollador\": \"Nintendo\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/videojuegos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"videojuegos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "282"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"11a-YnrjzRS44us+GaiiMIjtKQEOPTk\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 08 Aug 2026 19:06:48 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"exito\": true,\n    \"mensaje\": \"Videojuego creado exitosamente\",\n    \"dato\": {\n        \"id\": 12,\n        \"nombre\": \"Donkey Kong Country 3\",\n        \"genero\": \"Aventura\",\n        \"plataforma\": \"SNES\",\n        \"precio\": \"20.99\",\n        \"fecha_lanzamiento\": \"1995-07-15T00:00:00.000Z\",\n        \"desarrollador\": \"Nintendo\",\n        \"fecha_creacion\": \"2026-08-08T19:06:48.954Z\"\n    }\n}"
+				},
+				{
+					"name": "create new game but exists",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Megaman X4\", \r\n    \"genero\": \"Aventura\", \r\n    \"plataforma\": \"PS1\",\r\n    \"precio\": \"8.99\",\r\n    \"fecha_lanzamiento\": \"1996/08/10\",\r\n    \"desarrollador\": \"Capcom\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/videojuegos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"videojuegos"
+							]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "62"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3e-GBSIvJo8sq9nVhCcWChCok0pQE0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 08 Aug 2026 21:10:01 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"exito\": false,\n    \"msn\": \"Ya existe un videojuego con ese nombre\"\n}"
+				}
+			]
+		},
+		{
+			"name": "edit game",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Metal Gear\", \r\n    \"genero\": \"Sigilo\", \r\n    \"plataforma\": \"PS1\",\r\n    \"precio\": \"12.59\",\r\n    \"fecha_lanzamiento\": \"1999-01-01\",\r\n    \"desarrollador\": \"Sony\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/videojuegos/15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"videojuegos",
+						"15"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "edit game",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Metal Gear\", \r\n    \"genero\": \"Sigilo\", \r\n    \"plataforma\": \"PS1\",\r\n    \"precio\": \"12.59\",\r\n    \"fecha_lanzamiento\": \"1999-12-31\",\r\n    \"desarrollador\": \"Sony\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/videojuegos/15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"videojuegos",
+								"15"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "268"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"10c-FfeMsjuWff6tcTsdyxSGAzFC4G0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 08 Aug 2026 20:08:05 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"exito\": true,\n    \"mensaje\": \"Videojuego modificado exitosamente\",\n    \"dato\": {\n        \"id\": 15,\n        \"nombre\": \"Metal Gear\",\n        \"genero\": \"Sigilo\",\n        \"plataforma\": \"PS1\",\n        \"precio\": \"12.59\",\n        \"fecha_lanzamiento\": \"1999-12-31T00:00:00.000Z\",\n        \"desarrollador\": \"Sony\",\n        \"fecha_creacion\": \"2026-08-08T19:13:35.528Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "erase game by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/videojuegos/17",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"videojuegos",
+						"17"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "erase game by id",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/videojuegos/16",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"videojuegos",
+								"16"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "265"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"109-jDzxuMlT+pi7xLexCyFrzEOU6us\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 08 Aug 2026 20:55:54 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"exito\": true,\n    \"mensaje\": \"videojuego eliminado exitosamente\",\n    \"datos\": {\n        \"id\": 16,\n        \"nombre\": \"GEKIDO\",\n        \"genero\": \"Aventura\",\n        \"plataforma\": \"PS1\",\n        \"precio\": \"5.99\",\n        \"fecha_lanzamiento\": \"1997-08-20T00:00:00.000Z\",\n        \"desarrollador\": \"Sony\",\n        \"fecha_creacion\": \"2026-08-08T19:54:19.848Z\"\n    }\n}"
+				},
+				{
+					"name": "erase game by id not found",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/videojuegos/17",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"videojuegos",
+								"17"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "48"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"30-4invRVg4TSo2bkQaml4OOD5CIDs\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 08 Aug 2026 20:56:28 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"exito\": false,\n    \"msn\": \"Videojuego no encontrado\"\n}"
+				}
+			]
+		}
+	]
+}

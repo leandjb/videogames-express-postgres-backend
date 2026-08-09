@@ -1,6 +1,4 @@
 # videogames-express-postgres-backend
---
-
 REST API for videogames built with Node.js, Express and PostgreSQL.
 
 ## Table of Contents
